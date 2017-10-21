@@ -1,9 +1,19 @@
 import express from 'express';
+// import basicAuth from 'express-basic-auth';
 import { Nuxt, Builder } from 'nuxt';
 
+// import environment from './utils/environment';
 import api from './api';
 
 const app = express();
+
+// app.use(
+//   basicAuth({
+//     users: { [environment.BASIC_AUTH.username]: environment.BASIC_AUTH.password },
+//     challenge: true,
+//   }),
+// );
+
 const host = process.env.HOST || '127.0.0.1';
 const port = process.env.PORT || 3000;
 
