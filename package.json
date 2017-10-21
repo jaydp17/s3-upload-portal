@@ -5,6 +5,7 @@
   "author": "Jaydeep Solanki <jaydp17@gmail.com> (https://jaydp.com)",
   "dependencies": {
     "aws-sdk": "2.138.0",
+    "dotenv": "4.0.0",
     "express": "4.16.2",
     "express-basic-auth": "1.1.2"
   },
