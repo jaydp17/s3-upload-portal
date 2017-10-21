@@ -1,5 +1,3 @@
-'use strict';
-
 const util = require('util');
 const AWS = require('aws-sdk');
 const environment = require('./environment');

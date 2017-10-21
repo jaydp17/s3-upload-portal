@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const express = require('express');
 const basicAuth = require('express-basic-auth');
@@ -13,14 +11,14 @@ app.use(
   basicAuth({
     users: { [environment.BASIC_AUTH.username]: environment.BASIC_AUTH.password },
     challenge: true,
-  })
+  }),
 );
 
 const publicFolder = path.join(__dirname, '../public');
 express.static(publicFolder);
 
 app.get('/', (req, res) => {
-  res.sendFile(publicFolder + '/index.html');
+  res.sendFile(`${publicFolder}/index.html`);
 });
 
 app.get('/sign-s3', async (req, res) => {
@@ -34,7 +32,7 @@ app.get('/sign-s3', async (req, res) => {
   }
 
   const signedUrl = await s3.getUploadUrl(fileName, fileType);
-  res.json({ signedUrl });
+  return res.json({ signedUrl });
 });
 
 app.listen(3000, () => {
