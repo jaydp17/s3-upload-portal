@@ -18,10 +18,11 @@
   </form>
   <script>
   function getSignedRequest(file) {
-    fetch(`/sign-s3?file-name=${file.name}&file-type=${file.type}`, { credentials: 'include' })
-      .then(res => res.json())
-      .then(console.log)
-      .catch(console.error);
+    return fetch(`/sign-s3?fileName=${file.name}&fileType=${file.type}`, { credentials: 'include' })
+      .then(res => res.json());
+  }
+  function uploadFileToSignedUrl(file, signedUrl) {
+    return fetch(signedUrl, { method:'PUT', body: file });
   }
 
   (() => {
@@ -31,7 +32,11 @@
       if (file == null) {
         return alert('No file selected.');
       }
-      getSignedRequest(file);
+      getSignedRequest(file)
+      .then(data => {
+        console.log('data', data);
+        return uploadFileToSignedUrl(file, data.signedUrl);
+      })
     };
   })();
   </script>

@@ -24,14 +24,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/sign-s3', async (req, res) => {
-  const fileName = req.query['file-name'];
-  const fileType = req.query['file-type'];
+  const { fileName, fileType } = req.query;
 
   if (!fileName) {
-    return res.status(400).json({ error: 'file-name query param is required' });
+    return res.status(400).json({ error: 'fileName query param is required' });
   }
   if (!fileType) {
-    return res.status(400).json({ error: 'file-type query param is required' });
+    return res.status(400).json({ error: 'fileType query param is required' });
   }
 
   const signedUrl = await s3.getUploadUrl(fileName, fileType);
