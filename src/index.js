@@ -1,9 +1,11 @@
 'use strict';
 
+const path = require('path');
 const express = require('express');
 const basicAuth = require('express-basic-auth');
 
 const environment = require('./environment');
+const s3 = require('./s3');
 
 const app = express();
 
@@ -14,8 +16,26 @@ app.use(
   })
 );
 
+const publicFolder = path.join(__dirname, '../public');
+express.static(publicFolder);
+
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.sendFile(publicFolder + '/index.html');
+});
+
+app.get('/sign-s3', async (req, res) => {
+  const fileName = req.query['file-name'];
+  const fileType = req.query['file-type'];
+
+  if (!fileName) {
+    return res.status(400).json({ error: 'file-name query param is required' });
+  }
+  if (!fileType) {
+    return res.status(400).json({ error: 'file-type query param is required' });
+  }
+
+  const signedUrl = await s3.getUploadUrl(fileName, fileType);
+  res.json({ signedUrl });
 });
 
 app.listen(3000, () => {

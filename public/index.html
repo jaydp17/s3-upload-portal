@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>S3 Asset Uploader</title>
+</head>
+<body>
+  <form method="post" enctype="multipart/form-data">
+    <div>
+      <label for="file">Choose file to upload</label>
+      <input type="file" id="file-input" name="file" multiple>
+    </div>
+    <div>
+      <button>Submit</button>
+    </div>
+  </form>
+  <script>
+  function getSignedRequest(file) {
+    fetch(`/sign-s3?file-name=${file.name}&file-type=${file.type}`, { credentials: 'include' })
+      .then(res => res.json())
+      .then(console.log)
+      .catch(console.error);
+  }
+
+  (() => {
+    document.getElementById('file-input').onchange = () => {
+      const files = document.getElementById('file-input').files;
+      const file = files[0];
+      if (file == null) {
+        return alert('No file selected.');
+      }
+      getSignedRequest(file);
+    };
+  })();
+  </script>
+</body>
+</html>
