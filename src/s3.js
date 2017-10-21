@@ -5,7 +5,7 @@ const AWS = require('aws-sdk');
 const environment = require('./environment');
 
 const s3 = new AWS.S3();
-const getSignedUrl = util.promisify(s3.getSignedUrl);
+const getSignedUrl = util.promisify(s3.getSignedUrl).bind(s3);
 
 function getUploadUrl(name, contentType) {
   console.log({ name, contentType });
@@ -16,13 +16,7 @@ function getUploadUrl(name, contentType) {
     ACL: environment.S3.acl,
   };
 
-  return new Promise((resolve, reject) => {
-    s3.getSignedUrl('putObject', s3Params, (err, url) => {
-      console.log({ err, url });
-      if (err) return reject(err);
-      resolve(url);
-    });
-  });
+  return getSignedUrl('putObject', s3Params);
 }
 
 module.exports = {
