@@ -1,6 +1,7 @@
 <template>
   <div class="columns is-centered has-text-centered">
     <div class="column is-half is-narrow">
+      <h1 class="subtitle is-3 title-spacing">Uploads to S3 Bucket</h1>
       <upload-box2 />
     </div>
   </div>
@@ -48,5 +49,7 @@ export default {
 </script>
 
 <style scoped>
-
+.title-spacing {
+  margin: 1em 0 1em 0;
+}
 </style>

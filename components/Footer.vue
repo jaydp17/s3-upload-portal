@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer class="footer footer-padding">
     <div class="container">
       <div class="content has-text-centered">
         <p>
@@ -10,3 +10,9 @@
     </div>
   </footer>
 </template>
+
+<style lang="scss" scoped>
+.footer-padding {
+  padding: 1rem 1.5rem 1rem;
+}
+</style>
