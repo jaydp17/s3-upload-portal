@@ -1,8 +1,9 @@
 <template>
-  <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-transparent my-navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+      <a class="navbar-item" href="/">
+        <img src="~/assets/img/logo.svg" alt="logo" >
+        <h1 class="logo-title">Upload</h1>
       </a>
 
       <button class="button navbar-burger">
@@ -25,3 +26,24 @@
     </div>
   </nav>
 </template>
+
+<style lang="scss" scoped>
+@import '~assets/css/variables.scss';
+
+.my-navbar {
+  padding-top: 31px;
+}
+.logo-title {
+  color: $text-color;
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0;
+  position: relative;
+  top: -1px;
+  letter-spacing: 1px;
+  margin-left: 8px;
+  &:hover {
+    color: $primary-text-color;
+  }
+}
+</style>
