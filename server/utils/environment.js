@@ -15,3 +15,7 @@ exports.AWS = {
   accessKeyId: process.env.AWS_ACCESS_KEY_ID || 'xxx',
   secret: process.env.AWS_SECRET_ACCESS_KEY || 'yyy',
 };
+
+exports.output = {
+  urlPrefix: process.env.OUTPUT_URL_PREFIX || `https://${exports.S3.bucketName}.s3.amazonaws.com`,
+};

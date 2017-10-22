@@ -15,13 +15,22 @@
 </template>
 
 <script>
+import axios from '~/plugins/axios';
+
 export default {
   methods: {
     async onFileChange(file) {
-      if (!file) return undefined;
+      if (!file) return;
       this.file = file;
-      console.log('got file');
-      return null;
+      const { signedUrl } = await this.getSignedUrl(file);
+      this.$store.dispatch('uploadFileToSignedUrl', { file, signedUrl });
+    },
+    async getSignedUrl(file) {
+      const { data } = await axios.get('/api/sign-s3', {
+        withCredentials: true,
+        params: { fileName: file.name, fileType: file.type },
+      });
+      return data;
     },
   },
 };

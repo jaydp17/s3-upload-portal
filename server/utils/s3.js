@@ -12,7 +12,6 @@ const getSignedUrl = promisify(s3.getSignedUrl).bind(s3);
 
 // eslint-disable-next-line import/prefer-default-export
 export function getUploadUrl(name, contentType) {
-  console.log({ name, contentType });
   const s3Params = {
     Bucket: environment.S3.bucketName,
     Key: name,

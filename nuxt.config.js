@@ -1,3 +1,5 @@
+const environment = require('./server/utils/environment');
+
 module.exports = {
   /*
   ** Headers of the page
@@ -19,6 +21,9 @@ module.exports = {
   ** Global CSS
   */
   css: ['~/assets/css/main.scss'],
+  env: {
+    OUTPUT_URL_PREFIX: environment.output.urlPrefix,
+  },
   /*
   ** Add axios globally
   */

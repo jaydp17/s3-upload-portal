@@ -12,7 +12,8 @@
     "express": "4.16.2",
     "express-basic-auth": "1.1.2",
     "nuxt": "1.0.0-rc11",
-    "source-map-support": "^0.4.15"
+    "source-map-support": "^0.4.15",
+    "vuex": "3.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
