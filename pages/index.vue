@@ -2,14 +2,14 @@
   <div class="columns is-centered has-text-centered">
     <div class="column is-half is-narrow">
       <h1 class="subtitle is-3 title-spacing">Uploads to S3 Bucket</h1>
-      <upload-box2 />
+      <upload-box />
     </div>
   </div>
 </template>
 
 <script>
 import axios from '~/plugins/axios';
-import UploadBox2 from '~/components/UploadBox2.vue';
+import UploadBox from '~/components/UploadBox.vue';
 
 export default {
   // async asyncData() {
@@ -17,7 +17,7 @@ export default {
   //   return { users: data };
   // },
   components: {
-    UploadBox2,
+    UploadBox,
   },
   head() {
     return {
