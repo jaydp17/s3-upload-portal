@@ -1,7 +1,7 @@
 <template>
 <div class="wrap" v-if="showPastLinks">
   <table class="table-override">
-    <thead>
+    <thead class="thead-override">
       <tr>
         <th class="filename-list th-override">File Name</th>
         <th class="copyurl-list th-override has-text-centered">Copy Url</th>
@@ -27,7 +27,6 @@ export default {
   components: {
     CopyIcon,
   },
-  data() {},
   computed: {
     ...mapState({
       showPastLinks: state => state.pastLinks.length > 0,
@@ -52,9 +51,13 @@ export default {
   width: 30%;
 }
 .table-override {
+  table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
   font-family: Segoe UI, SF Pro Text, sans-serif;
+}
+.thead-override {
+  vertical-align: middle;
 }
 .tbody-override {
   word-wrap: break-word;
@@ -70,13 +73,14 @@ export default {
   border-top: 1px solid rgba(0, 148, 251, 0.1);
   padding: 0 19px;
   white-space: nowrap;
+  vertical-align: middle;
 }
 .td-override {
   font-size: 15px;
-  vertical-align: top;
+  vertical-align: middle;
   color: #4a4a4a;
-  padding: 17px 19px 0;
-  line-height: 23px;
+  padding: 0 19px;
+  line-height: 40px;
   position: relative;
 }
 .overflow-col {

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <span v-if="!showCopied">
-      <img src="~/assets/img/copy-16.svg" alt="copy-icon" @click="onCopyClick">
+    <span v-if="!showCopied" @click="onCopyClick" class="click-copy">
+      <img src="~/assets/img/copy-16.svg" alt="copy-icon" >
     </span>
     <span class="text-copied" v-else>Copied!</span>
   </div>
@@ -22,8 +22,18 @@ export default {
       console.log('text', this.text);
       setTimeout(() => {
         this.showCopied = false;
-      }, 2000);
+      }, 1000);
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.click-copy {
+  cursor: pointer;
+  padding: 0.25em 1em;
+}
+.text-copied {
+  color: #0a8dff;
+}
+</style>
