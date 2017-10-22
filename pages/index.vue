@@ -1,7 +1,6 @@
 <template>
   <div class="columns is-centered has-text-centered">
     <div class="column is-half is-narrow">
-      <upload-box />
       <upload-box2 />
     </div>
   </div>
@@ -9,7 +8,6 @@
 
 <script>
 import axios from '~/plugins/axios';
-import UploadBox from '~/components/UploadBox.vue';
 import UploadBox2 from '~/components/UploadBox2.vue';
 
 export default {
@@ -18,7 +16,6 @@ export default {
   //   return { users: data };
   // },
   components: {
-    UploadBox,
     UploadBox2,
   },
   head() {
