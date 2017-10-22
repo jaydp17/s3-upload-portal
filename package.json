@@ -1,8 +1,11 @@
 {
-  "name": "s3-asset-uploader",
+  "name": "s3-upload-portal",
   "description": "A simple site to allow uploading assets to an S3 Bucket",
   "version": "0.1.0",
   "author": "Jaydeep Solanki <jaydp17@gmail.com> (https://jaydp.com)",
+  "bugs": {
+    "url": "https://github.com/jaydp17/s3-upload-portal/issues"
+  },
   "dependencies": {
     "aws-sdk": "2.138.0",
     "axios": "0.17.0",
@@ -32,13 +35,19 @@
     "prettier": "1.7.4",
     "sass-loader": "6.0.6"
   },
+  "homepage": "https://github.com/jaydp17/s3-upload-portal#readme",
   "license": "MIT",
+  "main": "server/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jaydp17/s3-upload-portal.git"
+  },
   "scripts": {
     "build": "nuxt build && backpack build",
     "dev": "backpack dev",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "start": "cross-env NODE_ENV=production node build/main.js",
-    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
+    "start": "cross-env NODE_ENV=production node build/main.js"
   }
 }
