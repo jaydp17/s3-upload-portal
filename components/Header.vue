@@ -5,24 +5,14 @@
         <img src="~/assets/img/logo.svg" alt="logo" >
         <h1 class="logo-title">Upload</h1>
       </a>
-
-      <button class="button navbar-burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
     <div class="navbar-end">
-      <a class="navbar-item is-hidden-desktop-only" href="https://github.com/jgthms/bulma" target="_blank">
-        <span class="icon" style="color: #333;">
-          <i class="fa fa-lg fa-github"></i>
-        </span>
+      <a class="navbar-item" href="https://github.com/jaydp17/asset-uploader" target="_blank">
+        <img src="~/assets/img/github-icon.svg" alt="github-icon" width="32px">
       </a>
-      <a class="navbar-item is-hidden-desktop-only" href="https://twitter.com/jgthms" target="_blank">
-        <span class="icon" style="color: #55acee;">
-          <i class="fa fa-lg fa-twitter"></i>
-        </span>
-      </a>
+      <!-- <a class="navbar-item" href="https://twitter.com/jaydp17" target="_blank">
+        <img src="~/assets/img/twitter-icon.svg" alt="twitter-icon" width="32px">
+      </a> -->
     </div>
   </nav>
 </template>
