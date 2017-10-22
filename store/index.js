@@ -15,10 +15,10 @@ const createStore = () =>
       },
     },
     actions: {
-      async uploadFileToSignedUrl(context, { file, signedUrl }) {
+      async uploadFileToSignedUrl(context, { file, signedUrl, newFileName }) {
         // not sure why but wasn't working with axios -_-
         await fetch(signedUrl, { method: 'PUT', body: file });
-        context.commit('saveLink', { link: `${process.env.OUTPUT_URL_PREFIX}/${file.name}` });
+        context.commit('saveLink', { link: `${process.env.OUTPUT_URL_PREFIX}/${newFileName}` });
       },
     },
   });

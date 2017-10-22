@@ -22,8 +22,8 @@ export default {
     async onFileChange(file) {
       if (!file) return;
       this.file = file;
-      const { signedUrl } = await this.getSignedUrl(file);
-      this.$store.dispatch('uploadFileToSignedUrl', { file, signedUrl });
+      const { signedUrl, newFileName } = await this.getSignedUrl(file);
+      this.$store.dispatch('uploadFileToSignedUrl', { file, signedUrl, newFileName });
     },
     async getSignedUrl(file) {
       const { data } = await axios.get('/api/sign-s3', {

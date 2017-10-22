@@ -3,10 +3,6 @@ import * as AWS from 'aws-sdk';
 
 import environment from './environment';
 
-// const util = require('util');
-// const AWS = require('aws-sdk');
-// const environment = require('./environment');
-
 const s3 = new AWS.S3();
 const getSignedUrl = promisify(s3.getSignedUrl).bind(s3);
 
