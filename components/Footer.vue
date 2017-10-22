@@ -1,18 +1,38 @@
 <template>
-  <footer class="footer footer-padding">
-    <div class="container">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Asset Uploader</strong> by <a href="https://jaydp.com" target="_blank">jaydp17</a>. 
-          The source code is licensed <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>.
-        </p>
-      </div>
+  <footer class="footer-padding">
+    <div class="field is-grouped is-grouped-multiline">
+
+      <tag tag="Version" :value="version" />
+      <tag tag="license" :value="licenseValue" />
+
     </div>
   </footer>
 </template>
 
+<script>
+import Tag from './Tag.vue';
+
+const { version, license } = require('~/package.json');
+
+export default {
+  components: { Tag },
+  data() {
+    return { version, license };
+  },
+  computed: {
+    licenseValue() {
+      return `${this.license} License`;
+    },
+  },
+};
+</script>
+
+
 <style lang="scss" scoped>
 .footer-padding {
-  padding: 1rem 1.5rem 1rem;
+  padding: 50px 31px 41px;
+}
+.justified-center {
+  justify-content: center;
 }
 </style>
