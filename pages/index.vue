@@ -3,6 +3,7 @@
     <div class="column is-half is-narrow">
       <h1 class="subtitle is-3 title-spacing">Uploads to S3 Bucket</h1>
       <upload-box />
+      <past-files />
     </div>
   </div>
 </template>
@@ -10,6 +11,7 @@
 <script>
 import axios from '~/plugins/axios';
 import UploadBox from '~/components/UploadBox.vue';
+import PastFiles from '~/components/PastFiles.vue';
 
 export default {
   // async asyncData() {
@@ -18,6 +20,7 @@ export default {
   // },
   components: {
     UploadBox,
+    PastFiles,
   },
   head() {
     return {
