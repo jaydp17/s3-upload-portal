@@ -1,0 +1,12 @@
+@import './variables.scss';
+@import '~bulma';
+
+html {
+  background: url('~/assets/img/bg.svg');
+  font-weight: 200;
+  background-size: 110%;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 100%;
+  margin: auto;
+}

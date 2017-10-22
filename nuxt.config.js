@@ -18,7 +18,7 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.scss'],
   /*
   ** Add axios globally
   */
@@ -28,7 +28,6 @@ module.exports = {
     ** Run ESLINT on save
     */
     extend(config, ctx) {
-      // console.log(config);
       if (ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',

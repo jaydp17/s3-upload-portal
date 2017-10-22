@@ -18,7 +18,6 @@ export default {
 };
 </script>
 
-<style lang="sass" src="bulma"></style>
 <style lang="scss">
 
 </style>

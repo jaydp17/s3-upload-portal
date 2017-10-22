@@ -1,10 +1,16 @@
 <template>
-  <upload-box />
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-half is-narrow">
+      <upload-box />
+      <upload-box2 />
+    </div>
+  </div>
 </template>
 
 <script>
 import axios from '~/plugins/axios';
 import UploadBox from '~/components/UploadBox.vue';
+import UploadBox2 from '~/components/UploadBox2.vue';
 
 export default {
   // async asyncData() {
@@ -13,6 +19,7 @@ export default {
   // },
   components: {
     UploadBox,
+    UploadBox2,
   },
   head() {
     return {
