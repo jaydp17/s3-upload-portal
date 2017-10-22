@@ -1,10 +1,12 @@
 <template>
-  <div class="container container-flex">
-    <my-header/>
-      <div class="wrap">
-        <nuxt/>
-      </div>
-    <my-footer/>
+  <div @dragover.prevent @drop.prevent>
+    <div class="container container-flex" >
+      <my-header/>
+        <div class="wrap">
+          <nuxt/>
+        </div>
+      <my-footer/>
+    </div>
   </div>
 </template>
 
