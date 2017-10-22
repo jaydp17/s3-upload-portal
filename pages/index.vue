@@ -1,23 +1,19 @@
 <template>
-  <form method="post" enctype="multipart/form-data">
-    <div>
-      <label for="file">Choose file to upload</label>
-      <input type="file" id="file-input" name="file" multiple @change="filesChange($event.target.files)" >
-    </div>
-    <div>
-      <button>Submit</button>
-    </div>
-  </form>
+  <upload-box />
 </template>
 
 <script>
 import axios from '~/plugins/axios';
+import UploadBox from '~/components/UploadBox.vue';
 
 export default {
   // async asyncData() {
   //   const { data } = await axios.get('/api/users');
   //   return { users: data };
   // },
+  components: {
+    UploadBox,
+  },
   head() {
     return {
       title: 'Upload File',
