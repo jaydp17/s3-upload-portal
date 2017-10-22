@@ -1,16 +1,18 @@
 <template>
 <div class="wrap" v-if="showPastLinks">
-  <table class="table table-override">
+  <table class="table-override">
     <thead>
       <tr>
         <th class="filename-list th-override">File Name</th>
-        <th class="copyurl-list th-override">Copy Url</th>
+        <th class="copyurl-list th-override has-text-centered">Copy Url</th>
       </tr>
     </thead>
     <tbody class="tbody-override">
       <tr v-for="file in pastLinks" :key="file.link">
         <td class="overflow-col td-override">{{file.baseName}}</td>
-        <td class="td-override">{{file.link}}</td>
+        <td class="td-override has-text-centered">
+          <copy-icon :text="file.link" />
+        </td>
       </tr>
     </tbody>
   </table>
@@ -19,8 +21,13 @@
 
 <script>
 import { mapState } from 'vuex';
+import CopyIcon from './CopyIcon.vue';
 
 export default {
+  components: {
+    CopyIcon,
+  },
+  data() {},
   computed: {
     ...mapState({
       showPastLinks: state => state.pastLinks.length > 0,
@@ -45,6 +52,7 @@ export default {
   width: 30%;
 }
 .table-override {
+  width: 100%;
   border-collapse: collapse;
   font-family: Segoe UI, SF Pro Text, sans-serif;
 }
