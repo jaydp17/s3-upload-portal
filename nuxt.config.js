@@ -1,4 +1,5 @@
 const environment = require('./server/utils/environment');
+const packageJSON = require('./package.json');
 
 module.exports = {
   /*
@@ -23,6 +24,9 @@ module.exports = {
   css: ['~/assets/css/main.scss'],
   env: {
     OUTPUT_URL_PREFIX: environment.output.urlPrefix,
+    PACKAGE_VERSION: packageJSON.version,
+    LICENSE: packageJSON.license,
+    GITHUB_PAGE: packageJSON.homepage,
   },
   /*
   ** Add axios globally

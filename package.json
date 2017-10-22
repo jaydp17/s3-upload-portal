@@ -35,7 +35,7 @@
     "prettier": "1.7.4",
     "sass-loader": "6.0.6"
   },
-  "homepage": "https://github.com/jaydp17/s3-upload-portal#readme",
+  "homepage": "https://github.com/jaydp17/s3-upload-portal",
   "license": "MIT",
   "main": "server/index.js",
   "repository": {

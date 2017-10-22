@@ -12,16 +12,14 @@
 <script>
 import Tag from './Tag.vue';
 
-const { version, license } = require('~/package.json');
-
 export default {
   components: { Tag },
-  data() {
-    return { version, license };
-  },
   computed: {
+    version() {
+      return process.env.PACKAGE_VERSION;
+    },
     licenseValue() {
-      return `${this.license} License`;
+      return `${process.env.LICENSE} License`;
     },
   },
 };

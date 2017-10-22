@@ -7,7 +7,7 @@
       </a>
     </div>
     <div class="navbar-end">
-      <a class="navbar-item" href="https://github.com/jaydp17/asset-uploader" target="_blank">
+      <a class="navbar-item" :href="githubLink" target="_blank">
         <img src="~/assets/img/github-icon.svg" alt="github-icon" width="32px">
       </a>
       <!-- <a class="navbar-item" href="https://twitter.com/jaydp17" target="_blank">
@@ -16,6 +16,17 @@
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  computed: {
+    githubLink() {
+      return process.env.GITHUB_PAGE;
+    },
+  },
+};
+</script>
+
 
 <style lang="scss" scoped>
 @import '~assets/css/variables.scss';
