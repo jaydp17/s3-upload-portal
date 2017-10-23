@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     'no-param-reassign': ['off'],
     'arrow-body-style': ['error', 'as-needed'],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
   globals: {},
   settings: {
