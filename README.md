@@ -34,6 +34,7 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 Major dependencies:
 - [Vue.js <img src="https://vuejs.org/images/logo.png" height="15px"/>](https://vuejs.org/) 
 - [Nuxt.js <img src="https://avatars2.githubusercontent.com/u/23360933?s=200&v=4" height="20px" />](https://nuxtjs.org/)
+- [Backpack :school_satchel:](https://github.com/jaredpalmer/backpack)
 
 Design Inspiration (because I'm no designer):
 - [Mozilla Send](https://send.firefox.com)
