@@ -21,6 +21,7 @@ ENV DEBUG 'nuxt:*'
 COPY package.json yarn.lock /app/
 RUN yarn --prod
 
+COPY ./static /app/static
 COPY --from=builder /app/build /app/build
 COPY --from=builder /app/.nuxt /app/.nuxt
 
