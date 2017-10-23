@@ -27,9 +27,6 @@ $ npm start
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
 
-## :bug: Known Bugs
-- No loader/progress while uploading
-
 ## :heart: Credits
 Major dependencies:
 - [Vue.js <img src="https://vuejs.org/images/logo.png" height="15px"/>](https://vuejs.org/) 
