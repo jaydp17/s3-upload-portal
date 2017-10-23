@@ -1,4 +1,5 @@
 import Vuex from 'vuex';
+import axios from '~/plugins/axios';
 
 const createStore = () =>
   new Vuex.Store({
@@ -13,11 +14,20 @@ const createStore = () =>
       saveLink(state, { link }) {
         state.pastLinks.push(link);
       },
+      updateProgress(state, { percentCompleted }) {
+        state.current.percentCompleted = percentCompleted;
+      },
     },
     actions: {
       async uploadFileToSignedUrl(context, { file, signedUrl, newFileName }) {
-        // not sure why but wasn't working with axios -_-
-        await fetch(signedUrl, { method: 'PUT', body: file });
+        const options = {
+          headers: { 'Content-Type': file.type },
+          onUploadProgress: ({ loaded, total }) => {
+            const percentCompleted = Math.round(loaded * 100 / total);
+            context.commit('updateProgress', { percentCompleted });
+          },
+        };
+        await axios.put(signedUrl, file, options);
         context.commit('saveLink', { link: `${process.env.OUTPUT_URL_PREFIX}/${newFileName}` });
       },
     },

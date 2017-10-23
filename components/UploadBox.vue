@@ -29,6 +29,7 @@ export default {
     async onFileChange(file) {
       if (!file) return;
       this.file = file;
+      this.$store.commit('updateProgress', { percentCompleted: 0 });
       const { signedUrl, newFileName } = await this.getSignedUrl(file);
       this.$store.dispatch('uploadFileToSignedUrl', { file, signedUrl, newFileName });
     },
