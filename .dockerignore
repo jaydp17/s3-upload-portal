@@ -1,0 +1,7 @@
+.git
+node_modules
+.DS_Store
+.vscode
+.nuxt
+build
+dist
