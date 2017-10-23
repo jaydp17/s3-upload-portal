@@ -32,6 +32,7 @@ module.exports = {
   ** Add axios globally
   */
   build: {
+    extractCSS: true,
     vendor: ['axios'],
     /*
     ** Run ESLINT on save
