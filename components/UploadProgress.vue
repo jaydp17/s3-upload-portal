@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  props: ['percentage'],
+  props: { percentage: Number },
 };
 </script>
