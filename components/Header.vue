@@ -7,7 +7,7 @@
       </a>
     </div>
     <div class="navbar-end">
-      <a class="navbar-item" :href="githubLink" target="_blank">
+      <a class="navbar-item" :href="githubLink" target="_blank" rel="noopener">
         <img src="~/assets/img/github-icon.svg" alt="github-icon" width="32px">
       </a>
       <!-- <a class="navbar-item" href="https://twitter.com/jaydp17" target="_blank">
