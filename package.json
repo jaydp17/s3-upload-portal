@@ -1,6 +1,6 @@
 {
   "name": "s3-upload-portal",
-  "description": "A simple site to allow uploading assets to an S3 Bucket",
+  "description": "A simple (configurable) Vue.js web-app that allows uploading files to S3",
   "version": "0.1.0",
   "author": "Jaydeep Solanki <jaydp17@gmail.com> (https://jaydp.com)",
   "bugs": {
