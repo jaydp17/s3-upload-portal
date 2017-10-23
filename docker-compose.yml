@@ -2,8 +2,8 @@ version: '2'
 
 services:
   server:
-    build: .
-    env_file: .env
+    extends:
+      file: docker-compose.common.yml
+      service: server
     ports:
       - '${PORT}:${PORT}'
-    container_name: s3-upload-portal
