@@ -4,24 +4,41 @@
     @dragover.prevent="isDraggedIn = true"  
     @dragleave.prevent="isDraggedIn = false"
     @drop.prevent="onDrop">
-    <img class="upload-img" src="../assets/img/upload.svg" />
-    <p class="upload-text">Drop your file here to start uploading</p>
-    <form method="post" action="upload" enctype="multipart/form-data">
-      <input id="file-upload" type="file" name="file" @change="onFileChange($event.target.files[0])">
-      <label 
-      id="browse"
-      title="Select a file to upload"
-      for="file-upload" class="button is-info is-large">
-        Select a file to upload
-      </label>
-    </form>
+
+    <template v-if="!isUploading">
+      <img src="../assets/img/upload.svg" />
+      <p class="upload-text">Drop your file here to start uploading</p>
+      <form method="post" action="upload" enctype="multipart/form-data">
+        <input id="file-upload" type="file" name="file" @change="onFileChange($event.target.files[0])">
+        <label 
+        id="browse"
+        title="Select a file to upload"
+        for="file-upload" class="button is-info is-large">
+          Select a file to upload
+        </label>
+      </form>
+    </template>
+    <template v-else>
+      <upload-progress :percentage="percentage" class="upload-progress"/>
+    </template>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import axios from '~/plugins/axios';
+import UploadProgress from './UploadProgress.vue';
 
 export default {
+  components: {
+    UploadProgress,
+  },
+  computed: {
+    ...mapState({
+      isUploading: state => state.current.isUploading,
+      percentage: state => state.current.percentCompleted,
+    }),
+  },
   data() {
     return { isDraggedIn: false };
   },
@@ -30,6 +47,7 @@ export default {
       if (!file) return;
       this.file = file;
       this.$store.commit('updateProgress', { percentCompleted: 0 });
+      this.$store.commit('setIsUploading', { isUploading: true });
       const { signedUrl, newFileName } = await this.getSignedUrl(file);
       this.$store.dispatch('uploadFileToSignedUrl', { file, signedUrl, newFileName });
     },
@@ -64,11 +82,11 @@ export default {
   border-radius: 4px;
   transition: transform 0.15s;
   padding: 15px;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  .upload-img {
-    margin: 20px 0 0px;
-  }
   .upload-text {
     margin: 20px 0 20px;
   }
@@ -85,6 +103,9 @@ export default {
   -ms-transform: scale(1.04);
   transform: scale(1.04);
   border-radius: 4.2px;
+}
+.upload-progress {
+  width: 50%;
 }
 </style>
 

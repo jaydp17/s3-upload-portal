@@ -4,7 +4,7 @@ import axios from '~/plugins/axios';
 const createStore = () =>
   new Vuex.Store({
     state: {
-      current: {},
+      current: { isUploading: false, percentCompleted: 0 },
       pastLinks: [],
     },
     mutations: {
@@ -17,6 +17,9 @@ const createStore = () =>
       updateProgress(state, { percentCompleted }) {
         state.current.percentCompleted = percentCompleted;
       },
+      setIsUploading(state, { isUploading }) {
+        state.current.isUploading = isUploading;
+      },
     },
     actions: {
       async uploadFileToSignedUrl(context, { file, signedUrl, newFileName }) {
@@ -28,6 +31,7 @@ const createStore = () =>
           },
         };
         await axios.put(signedUrl, file, options);
+        context.commit('setIsUploading', { isUploading: false });
         context.commit('saveLink', { link: `${process.env.OUTPUT_URL_PREFIX}/${newFileName}` });
       },
     },
